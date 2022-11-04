@@ -1,4 +1,5 @@
-
+import Head from "next/head"
+import Header from "../sections/Header"
 
 const Layout = ({children}) =>{
 
@@ -8,7 +9,8 @@ const Layout = ({children}) =>{
                 <title> Sample Title</title>
             </Head>
 
-            <div>
+            <div className="min-h-screen flex flex-col">
+                <Header/>
                 <main>
                     {children}
                 </main>
@@ -16,3 +18,5 @@ const Layout = ({children}) =>{
         </>
     )
 }
+
+export default Layout
