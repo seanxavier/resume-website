@@ -3,7 +3,7 @@
 }
 
 .main {
-  min-height: 100vh;
+  /* min-height: 100vh; */
   padding: 4rem 0;
   flex: 1;
   display: flex;
@@ -28,7 +28,7 @@
   flex-grow: 1;
 }
 
-.title a {
+/* .title a {
   color: #0070f3;
   text-decoration: none;
 }
@@ -126,4 +126,4 @@
   .logo img {
     filter: invert(1);
   }
-}
+} */
