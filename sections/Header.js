@@ -37,6 +37,67 @@ const Header = () => {
         )
     }
 
+    const headerToggler = () => {
+
+        const [headerOpen, setHeaderOpen] = useState(false);
+
+        return (
+            <>
+                <div className="right-2 p-2 top-2">
+                    <Button
+                        onClick={() => setHeaderOpen(!headerOpen)}
+                    >
+                        {headerOpen === false
+                            ?
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-5 h-5">
+                                <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+                            </svg>
+                            :
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-5 h-5">
+                                <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+                            </svg>
+
+
+
+                        }
+
+                    </Button>
+                </div>
+                {
+                    headerOpen === true
+                        ?
+                        <div className="flex flex-col justify-center text-center  w-3/4 sm:w-2/4  absolute dark:bg-slate-800 bg-neutral-200 rounded-b-2xl">
+                            {
+                                headerLinks.map((link, index) => {
+                                    return (
+                                        <Link
+                                            activeClass="active"
+                                            to={link.path}
+                                            spy={true}
+                                            smooth={true}
+                                            offset={0}
+                                            duration={500}
+                                            className="w-full py-2 px-2 mx-auto hover:underline hover:underline-offset-8 hover:decoration-inherit hover:decoration-from-font hover:bg-neutral-100 text-base "
+                                            key={index}>
+
+                                            {link.label}
+
+                                        </Link>
+
+
+                                    )
+                                })
+                            }
+                        </div>
+                        : ""
+                }
+
+            </>
+        )
+
+
+    }
+
     const headerLinks = [
         { label: "About", path: "About" },
         { label: "Education", path: "Education" },
@@ -48,36 +109,42 @@ const Header = () => {
     ]
 
 
+
+
     return (
         <>
-            <header className="flex flex-row flex-wrap  items-center h-16  fixed w-full dark:bg-slate-900 bg-neutral-50">
-                <ul className="ml-4">
+            <header className=" flex flex-row flex-wrap  items-center h-16  fixed w-full dark:bg-slate-900 bg-neutral-50">
+                <ul className="ml-4 hidden lg:block">
                     {
                         headerLinks.map((link, index) => {
                             return (
-                                <>
-                                    <Link
+                                <Link
                                     activeClass="active"
-                                        to={link.path}
-                                        spy={true}
-                                        smooth={true}
-                                        offset={0}
-                                        duration={500}
-                                        className="py-2 px-5 mx-1 hover:underline hover:underline-offset-8 hover:decoration-inherit hover:decoration-from-font text-base "
-                                        key={index}>
+                                    to={link.path}
+                                    spy={true}
+                                    smooth={true}
+                                    offset={0}
+                                    duration={500}
+                                    className="py-2 px-5 mx-1 hover:underline hover:underline-offset-8 hover:decoration-inherit hover:decoration-from-font text-base "
+                                    key={index}>
 
-                                        {link.label}
-                                    </Link>
-                                </>
+                                    {link.label}
+                                </Link>
 
 
                             )
                         })
                     }
                 </ul>
+                <div id="headerToggle" className="block lg:hidden">
+                    {headerToggler()}
+                </div>
+                <div id="themeToggle">
+                    {themeChanger()}
+                </div>
             </header>
 
-            {themeChanger()}
+
         </>
 
     )
