@@ -1,7 +1,9 @@
 import Head from 'next/head'
 import Image from 'next/image'
-import FooterV1 from '../sections/Footer'
-import Header from '../sections/Header'
+import Certification from '../sections/Certification'
+import Education from '../sections/Education'
+import Experience from '../sections/Experience'
+import Organizations from '../sections/Organizations'
 import styles from '../styles/Home.module.css'
 
 export default function Home() {
@@ -13,13 +15,16 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-
-      <main className={styles.main}>
-
+      <main className="flex flex-col">
+        <Education />
+        <Experience/>
+        <Certification/>
+        <Organizations/>
 
       </main>
 
-      <FooterV1 />
+
+
     </div>
   )
 }

@@ -1,5 +1,6 @@
 import Head from "next/head"
 import Header from "../sections/Header"
+import FooterV1 from "../sections/Footer"
 
 const Layout = ({children}) =>{
 
@@ -11,10 +12,12 @@ const Layout = ({children}) =>{
 
             <div className="min-h-screen flex flex-col">
                 <Header/>
-                <main>
+                <main className=" dark:bg-slate-900 bg-neutral-50">
                     {children}
                 </main>
+                <FooterV1 />
             </div>
+
         </>
     )
 }

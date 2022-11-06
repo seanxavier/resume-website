@@ -5,7 +5,7 @@ import Image from 'next/image';
 const FooterV1 = () => {
     return (
         <>
-            <footer className={styles.footer}>
+            <footer className={`${styles.footer}` }>
                 <a
                     href="#"
                     target="_blank"

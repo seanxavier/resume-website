@@ -16,6 +16,8 @@ a {
   /* text-decoration: none; */
 }
 
+
+
 * {
   box-sizing: border-box;
 }
@@ -29,3 +31,7 @@ a {
     background: black;
   }
 } */
+
+.h1 {
+  @apply text-2xl font-bold mt-16 mb-2
+}
