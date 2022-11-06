@@ -5,6 +5,7 @@ import Education from '../sections/Education'
 import Experience from '../sections/Experience'
 import Organizations from '../sections/Organizations'
 import Projects from '../sections/Projects'
+import Skills from '../sections/Skills'
 import styles from '../styles/Home.module.css'
 
 export default function Home() {
@@ -18,6 +19,7 @@ export default function Home() {
 
       <main className="flex flex-col">
         <Education />
+        <Skills/>
         <Experience/>
         <Certification/>
         <Projects/>
