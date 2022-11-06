@@ -1,7 +1,8 @@
-import Link from "next/link"
+// import Link from "next/link"
 import Button from "../components/Button"
 import { useTheme } from "next-themes"
 import { useState, useEffect, useRef } from "react"
+import { Link, ScrollLink } from "react-scroll/modules"
 
 
 const Header = () => {
@@ -37,13 +38,13 @@ const Header = () => {
     }
 
     const headerLinks = [
-        { label: "About", path: "#About" },
-        { label: "Education", path: "#Education" },
-        { label: "Skills", path: "#Skills" },
-        { label: "Experience", path: "#Experience" },
-        { label: "Certifications", path: "#Certifications" },
-        { label: "Projects", path: "#Projects" },
-        { label: "Organizations", path: "#Organizations" },
+        { label: "About", path: "About" },
+        { label: "Education", path: "Education" },
+        { label: "Skills", path: "Skills" },
+        { label: "Experience", path: "Experience" },
+        { label: "Certifications", path: "Certifications" },
+        { label: "Projects", path: "Projects" },
+        { label: "Organizations", path: "Organizations" },
     ]
 
 
@@ -54,9 +55,22 @@ const Header = () => {
                     {
                         headerLinks.map((link, index) => {
                             return (
-                                <Link href={link.path} className="py-2 px-5 mx-1 hover:underline hover:underline-offset-8 hover:decoration-inherit hover:decoration-from-font text-base " key={index}>
-                                    {link.label}
-                                </Link>
+                                <>
+                                    <Link
+                                    activeClass="active"
+                                        to={link.path}
+                                        spy={true}
+                                        smooth={true}
+                                        offset={0}
+                                        duration={500}
+                                        className="py-2 px-5 mx-1 hover:underline hover:underline-offset-8 hover:decoration-inherit hover:decoration-from-font text-base "
+                                        key={index}>
+
+                                        {link.label}
+                                    </Link>
+                                </>
+
+
                             )
                         })
                     }
