@@ -66,7 +66,7 @@ const Header = () => {
                 {
                     headerOpen === true
                         ?
-                        <div className="flex flex-col justify-center text-center  w-3/4 sm:w-2/4  absolute dark:bg-slate-800 bg-neutral-200 rounded-b-2xl">
+                        <div className="flex flex-col justify-center text-center  w-full  absolute dark:bg-slate-800 bg-neutral-200 rounded-b-2xl">
                             {
                                 headerLinks.map((link, index) => {
                                     return (
@@ -77,8 +77,10 @@ const Header = () => {
                                             smooth={true}
                                             offset={0}
                                             duration={500}
-                                            className="w-full py-2 px-2 mx-auto hover:underline hover:underline-offset-8 hover:decoration-inherit hover:decoration-from-font hover:bg-neutral-100 text-base "
+                                            onClick={()=>setHeaderOpen(false)}
+                                            className="w-full py-2 px-2 mx-auto hover:underline hover:underline-offset-8 hover:decoration-inherit hover:decoration-from-font hover:bg-slate-600 text-base last-of-type:rounded-b-2xl"
                                             key={index}>
+                                            
 
                                             {link.label}
 
