@@ -48,7 +48,7 @@ const Organizations = () => {
 
     return (
         <>
-            <div className="lg:mx-40" id="Organizations">
+            <div className="lg:mx-40  mx-6" id="Organizations">
                 <div className="h1">
                     <h1 className="">Organizations</h1>
                 </div>

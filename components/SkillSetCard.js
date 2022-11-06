@@ -4,7 +4,7 @@ const SkillSetCard = ({data, title}) => {
 
     return (
         <>
-            <div className="w-1/3 my-4">
+            <div className="lg:w-1/6 md:w-1/4 w-1/2  my-4">
                 <h2 className="font-semibold">{title}</h2>
                 <div className="">
                     {

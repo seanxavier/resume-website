@@ -56,7 +56,7 @@ const Experience = () => {
 
     return (
         <>
-            <div className="lg:mx-40" id="Experience">
+            <div className="lg:mx-40  mx-6" id="Experience">
                 <div className="h1">
                     <h1 className="">Experience</h1>
                 </div>

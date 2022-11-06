@@ -26,7 +26,7 @@ const Education = () => {
 
     return (
         <>
-            <div className="lg:mx-40" id="Education">
+            <div className="lg:mx-40  mx-6" id="Education">
                 <div className="h1">
                     <h1 className="">Education</h1>
                 </div>

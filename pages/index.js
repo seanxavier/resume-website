@@ -1,5 +1,6 @@
 import Head from 'next/head'
 import Image from 'next/image'
+import About from '../sections/About'
 import Certification from '../sections/Certification'
 import Education from '../sections/Education'
 import Experience from '../sections/Experience'
@@ -18,7 +19,9 @@ export default function Home() {
       </Head>
 
       <main className="flex flex-col">
+      <About/>
         <Education />
+        
         <Skills/>
         <Experience/>
         <Certification/>

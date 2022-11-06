@@ -43,7 +43,7 @@ const Projects = () => {
 
     return (
         <>
-            <div className="lg:mx-40" id="Projects">
+            <div className="lg:mx-40  mx-6" id="Projects">
                 <div className="h1">
                     <h1 className="">Projects</h1>
                 </div>

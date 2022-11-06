@@ -22,7 +22,7 @@ const Certification = () => {
 
     return (
         <>
-            <div className="lg:mx-40" id="Certifications">
+            <div className="lg:mx-40 mx-6" id="Certifications">
                 <div className="h1">
                     <h1 className="">Certifications</h1>
                 </div>

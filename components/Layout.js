@@ -12,7 +12,7 @@ const Layout = ({children}) =>{
 
             <div className="min-h-screen flex flex-col">
                 <Header/>
-                <main className=" dark:bg-slate-900 bg-neutral-50">
+                <main className="dark:bg-slate-900 bg-neutral-50 ">
                     {children}
                 </main>
                 <FooterV1 />
