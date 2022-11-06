@@ -5,13 +5,23 @@ const Projects = () => {
 
     const data = [
         {
+            projectName: "Resume Website",
+            dateFinished: "2022-11-01",
+            repositoryLink: "https://github.com/iliwysfyasbysuoi/resume-website",
+            deployedLink: "https://resume.seanxavier.one/",
+            details: [
+                "A resume website I created for myself. This is what you're looking at right now.",
+                "Developed with NodeJS, NextJS, Tailwind",
+                "Built as a personal project"
+            ]
+        },{
             projectName: "Human-Resource Information System with Analytics",
             dateFinished: "2022-07-01",
             repositoryLink: "",
             deployedLink: "",
             details: [
                 "The HRIS integrates a group of companies’ HR processes from onboarding to offboarding, performance management, and training.",
-                "Designed with HTML, CSS, Node.js, JQuery, Handlebars, MongoDB, PowerBI",
+                "Developed with HTML, CSS, Node.js, JQuery, Handlebars, MongoDB, PowerBI",
                 "Capstone Project/Thesis",
             ]
         },
@@ -22,7 +32,7 @@ const Projects = () => {
             deployedLink: "",
             details: [
                 "A Bidding and Vessel Tracking System developed for an oil tankering and logistics company.",
-                "Designed with HTML, CSS, Node.js, JQuery, and Handlebars. Used MongoDB as database",
+                "Developed with HTML, CSS, Node.js, JQuery,  Handlebars, MongoDB",
                 "Built for a web development course",
             ]
         },
@@ -32,8 +42,8 @@ const Projects = () => {
             repositoryLink: "https://github.com/iliwysfyasbysuoi/Chapter-One--Refactored-",
             deployedLink: "https://chapterone-itisdev.seanxavier.one/",
             details: [
-                "An e-Commerce website that meets the requirements of a bookstore. The platform is capable of the sales processes, messaging, reports, and book requesting.",
-                "Designed with HTML, CSS, Node.js, JQuery, and Handlebars. Used MongoDB as a database.",
+                "An e-Commerce website for a bookstore. The platform is capable of the sales processes, messaging, reports, and book requesting.",
+                "Designed with HTML, CSS, Node.js, JQuery, Handlebars, MongoDB",
             ],
 
         }
@@ -55,7 +65,7 @@ const Projects = () => {
                             <div className="font-semibold">
                                 <div className="md:flex md:flex-row md:justify-between">
                                     <h2>{data.projectName}</h2>
-                                    <h2>{dateFinished.toLocaleDateString('en-us', { year: "numeric", month: "long" })} {data.dateFinished === "" ? "" : "- " + dateFinished.toLocaleDateString('en-us', { year: "numeric", month: "long" })}</h2>
+                                    <h2>{dateFinished.toLocaleDateString('en-us', { year: "numeric", month: "long" })} </h2>
                                 </div>
                                 <div className="md:flex md:flex-row md:justify-start ">
                                     {data.repositoryLink !== ""
