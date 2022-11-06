@@ -30,15 +30,15 @@ const Certification = () => {
                     let dateIssued = new Date(data.dateIssued)
                     return (
                         <div className="mb-8" key={index}>
-                            <div className="font-semibold">
-                                <div className="md:flex md:flex-row md:justify-between">
+                            <div className="font-semibold ">
+                                <div className="md:flex md:flex-row md:justify-between ">
                                     <h2 aria-label="view">{data.certName} </h2>
                                     <h2>{dateIssued.toLocaleDateString('en-us', { year: "numeric", month: "long" })}</h2>
                                 </div>
                                 <div className="md:flex md:flex-row md:justify-between">
                                     <h2>{data.issuer}</h2>
                                     <Link
-                                        className="hover:underline"
+                                        className="hover:decoration-solid underline decoration-dotted"
                                         href={data.link}
                                         target="_blank"
                                     >
