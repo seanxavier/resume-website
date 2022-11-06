@@ -8,13 +8,11 @@ const SkillSetCard = ({data, title}) => {
                 <h2 className="font-semibold">{title}</h2>
                 <div className="">
                     {
-                        data.map((skill) => {
+                        data.map((skill, index) => {
                             return (
-                                <>
-                                    <div>
+                                    <div key={index}>
                                         {skill.skill}
                                     </div>
-                                </>
                             )
                         })
                     }
