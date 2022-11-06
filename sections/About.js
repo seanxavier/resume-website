@@ -14,7 +14,7 @@ const About = () => {
 
     return (
         <>
-            <div className=" h-80 bg-slate-100 pt-16" id="About">
+            <div className=" h-80  pt-16" id="About">
                 <div className="h1">
                     <h1 className="">{data.name}</h1>
                 </div>
@@ -22,6 +22,11 @@ const About = () => {
                     <p>{data.mobileNum}</p>
                     <p>{data.email}</p>
                     <p>{data.location}</p>
+                </div>
+                <div>
+                    <p>
+
+                    </p>
                 </div>
             </div>
 
