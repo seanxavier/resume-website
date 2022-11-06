@@ -19,7 +19,7 @@ const About = () => {
                     <h1 className="">{data.name}</h1>
                 </div>
                 <div className="md:flex md:flex-col md:justify-around  text-center  ">
-                    <p>{data.mobileNum}</p>
+                    {/* <p>{data.mobileNum}</p> */}
                     <p>{data.email}</p>
                     <p>{data.location}</p>
                 </div>
