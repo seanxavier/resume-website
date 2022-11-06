@@ -54,7 +54,7 @@ const Skills = () => {
                 <div className="h1">
                     <h1 className="">Skills</h1>
                 </div>
-                <div className="flex flex-row flex-wrap  justify-between">
+                <div className="flex flex-row flex-wrap lg:justify-between md:justify-start">
 
                     <SkillSetCard data={data.development} title="Development"/>
                     <SkillSetCard data={data.language} title="Programming Languages"/>
