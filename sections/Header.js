@@ -115,7 +115,7 @@ const Header = () => {
 
     return (
         <>
-            <header className=" flex flex-row flex-wrap  items-center h-16  fixed w-full dark:bg-slate-900 bg-neutral-50">
+            <header className=" flex flex-row flex-wrap  items-center h-16  fixed w-full dark:bg-slate-900 bg-neutral-50 z-50">
                 <ul className="ml-4 hidden lg:block">
                     {
                         headerLinks.map((link, index) => {

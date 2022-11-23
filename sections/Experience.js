@@ -115,6 +115,7 @@ const Experience = () => {
                                                 initial="offscreen"
                                                 viewport={{ once: false }}
                                                 whileInView="details"
+                                                key={index}
                                             >
                                                 <li key={index} className="ml-8">
                                                     {detail}
