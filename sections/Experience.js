@@ -97,16 +97,20 @@ const Experience = () => {
 
                         return (
                             <div key={index} className="mb-8">
-                                <motion.div variants={Variants}>
+                                <motion.div variants={Variants} >
                                     <div className="font-semibold">
-                                        <div className="md:flex md:flex-row md:justify-between">
+                                        <motion.div
+                                            className="md:flex md:flex-row md:justify-between"
+                                            variants={Variants} viewport={{ once: false }} initial="offscreen">
                                             <h2>{data.company}</h2>
                                             <h2>{data.location}</h2>
-                                        </div>
-                                        <div className="md:flex md:flex-row md:justify-between">
+                                        </motion.div>
+                                        <motion.div
+                                            className="md:flex md:flex-row md:justify-between"
+                                            variants={Variants} viewport={{ once: false }}>
                                             <h2>{data.position}</h2>
                                             <h2>{dateStarted.toLocaleDateString('en-us', { year: "numeric", month: "long" })} {data.dateFinished === "" ? "" : "- " + dateFinished.toLocaleDateString('en-us', { year: "numeric", month: "long" })}</h2>
-                                        </div>
+                                        </motion.div>
                                     </div>
                                     {data.details.map((detail, index) => {
                                         return (
