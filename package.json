@@ -5,11 +5,12 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": " node server.js",
+    "start": "NODE_ENV=production node server.js",
     "lint": "next lint"
   },
   "dependencies": {
     "@heroicons/react": "^2.0.13",
+    "framer-motion": "^7.6.9",
     "next": "13.0.2",
     "next-themes": "^0.2.1",
     "react": "18.2.0",

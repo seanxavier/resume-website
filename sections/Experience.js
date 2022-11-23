@@ -1,4 +1,4 @@
-
+import { motion, Variants } from 'framer-motion'
 
 const Experience = () => {
 
@@ -52,45 +52,87 @@ const Experience = () => {
         }
     ]
 
+    const Variants = {
+        offscreen: {
+            opacity: 0,
+            y: 50
+        },
+        onscreen: {
+            opacity: 1,
+            y: 0,
 
+            transition: {
+                type: "Spring",
+                duration: 0.8,
+                staggerChildren: 0.5
+            }
+        },
+        details: {
+            opacity: 1,
+            y: 0,
+            transition: {
+                type: "Spring",
+                duration: 0.5,
+                staggerChildren: 0.3
+            }
+        }
+    };
 
     return (
         <>
-            <div className="lg:mx-40  mx-6" id="Experience">
-                <div className="h1">
-                    <h1 className="">Experience</h1>
-                </div>
-                {data.map((data, index) => {
-                    let dateStarted = new Date(data.dateStarted);
-                    let dateFinished = new Date(data.dateFinished);
-
-                    return (
-                        <div key={index} className="mb-8">
-                            <div className="font-semibold">
-                                <div className="md:flex md:flex-row md:justify-between">
-                                    <h2>{data.company}</h2>
-                                    <h2>{data.location}</h2>
-                                </div>
-                                <div className="md:flex md:flex-row md:justify-between">
-                                    <h2>{data.position}</h2>
-                                    <h2>{dateStarted.toLocaleDateString('en-us', { year: "numeric", month: "long" })} {data.dateFinished === "" ? "" : "- " + dateFinished.toLocaleDateString('en-us', { year: "numeric", month: "long" })}</h2>
-                                </div>
-                            </div>
-
-                            {data.details.map((detail, index) => {
-                                return (
-                                    <li key={index} className="ml-8">
-                                        {detail}
-                                    </li>
-                                )
-                            })
-                            }
+            <div className="lg:mx-40 mx-6" id="Experience">
+                <motion.div
+                    initial="offscreen"
+                    viewport={{ once: false }}
+                    whileInView="onscreen">
+                    <motion.div variants={Variants}>
+                        <div className="h1">
+                            <h1 className="">Experience</h1>
                         </div>
-                    )
-                })
-                }
+                    </motion.div>
 
+                    {data.map((data, index) => {
+                        let dateStarted = new Date(data.dateStarted);
+                        let dateFinished = new Date(data.dateFinished);
+
+                        return (
+                            <div key={index} className="mb-8">
+                                <motion.div variants={Variants}>
+                                    <div className="font-semibold">
+                                        <div className="md:flex md:flex-row md:justify-between">
+                                            <h2>{data.company}</h2>
+                                            <h2>{data.location}</h2>
+                                        </div>
+                                        <div className="md:flex md:flex-row md:justify-between">
+                                            <h2>{data.position}</h2>
+                                            <h2>{dateStarted.toLocaleDateString('en-us', { year: "numeric", month: "long" })} {data.dateFinished === "" ? "" : "- " + dateFinished.toLocaleDateString('en-us', { year: "numeric", month: "long" })}</h2>
+                                        </div>
+                                    </div>
+                                    {data.details.map((detail, index) => {
+                                        return (
+                                            <motion.div
+                                                variants={Variants}
+                                                initial="offscreen"
+                                                viewport={{ once: false }}
+                                                whileInView="details"
+                                            >
+                                                <li key={index} className="ml-8">
+                                                    {detail}
+                                                </li>
+                                            </motion.div>
+                                        )
+                                    })
+                                    }
+                                </motion.div>
+
+
+                            </div>
+                        )
+                    })
+                    }
+                </motion.div>
             </div>
+
         </>
     )
 }

@@ -1,4 +1,5 @@
 import SkillSetCard from "../components/SkillSetCard"
+import { motion, Variants } from 'framer-motion'
 
 
 
@@ -47,25 +48,60 @@ const Skills = () => {
         ]
     }
 
+    const Variants = {
+        offscreen: {
+            opacity: 0,
+            y: 50
+        },
+        onscreen: {
+            opacity: 1,
+            y: 0,
+
+            transition: {
+                type: "Spring",
+                duration: 0.8,
+                staggerChildren: 0.5
+            }
+        },
+        details: {
+            opacity: 1,
+            y: 0,
+            transition: {
+                type: "Spring",
+                duration: 0.5,
+                staggerChildren: 0.3
+            }
+        }
+    };
+
 
     return (
         <>
-            <div className="lg:mx-40  mx-6" id="Skills">
-                <div className="h1">
+            <motion.div
+                className="lg:mx-40  mx-6"
+                id="Skills"
+                initial="offscreen"
+                viewport={{ once: false }}
+                whileInView="onscreen"
+            >
+                <motion.div
+                    className="h1"
+                    variants={Variants}
+                >
                     <h1 className="">Skills</h1>
-                </div>
+                </motion.div>
                 <div className="flex flex-row flex-wrap lg:justify-between md:justify-start">
 
-                    <SkillSetCard data={data.development} title="Development"/>
-                    <SkillSetCard data={data.language} title="Programming Languages"/>
-                    <SkillSetCard data={data.methodologies} title="Methodologies"/>
-                    <SkillSetCard data={data.database} title="Database"/>
-                    <SkillSetCard data={data.frameworks} title="Frameworks"/>
-                    <SkillSetCard data={data.technology} title="Technologies"/>
+                    <SkillSetCard data={data.development} title="Development" />
+                    <SkillSetCard data={data.language} title="Programming Languages" />
+                    <SkillSetCard data={data.methodologies} title="Methodologies" />
+                    <SkillSetCard data={data.database} title="Database" />
+                    <SkillSetCard data={data.frameworks} title="Frameworks" />
+                    <SkillSetCard data={data.technology} title="Technologies" />
 
                 </div>
 
-            </div>
+            </motion.div>
         </>
     )
 }

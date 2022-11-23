@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { motion } from 'framer-motion'
 
 
 const Projects = () => {
@@ -14,7 +15,7 @@ const Projects = () => {
                 "Developed with NodeJS, NextJS, Tailwind",
                 "Built as a personal project"
             ]
-        },{
+        }, {
             projectName: "Human-Resource Information System with Analytics",
             dateFinished: "2022-07-01",
             repositoryLink: "",
@@ -49,25 +50,68 @@ const Projects = () => {
         }
     ]
 
+    const Variants = {
+        offscreen: {
+            opacity: 0,
+            y: 50
+        },
+        onscreen: {
+            opacity: 1,
+            y: 0,
+
+            transition: {
+                type: "Spring",
+                duration: 0.8,
+                staggerChildren: 0.3
+            }
+        },
+        details: {
+            opacity: 1,
+            y: 0,
+            transition: {
+                type: "Spring",
+                duration: 0.5
+            }
+        }
+    };
+
 
 
     return (
         <>
-            <div className="lg:mx-40  mx-6" id="Projects">
-                <div className="h1">
+            <motion.div
+                className="lg:mx-40  mx-6"
+                id="Projects"
+                initial="offscreen"
+                viewport={{ once: false }}
+                whileInView="onscreen"
+            >
+                <motion.div
+                    className="h1"
+                    variants={Variants}
+
+                >
                     <h1 className="">Projects</h1>
-                </div>
+                </motion.div>
                 {data.map((data, index) => {
                     let dateFinished = new Date(data.dateFinished);
 
                     return (
-                        <div key={index} className="mb-8">
+                        <motion.div
+                            key={index}
+                            className="mb-8"
+                            variants={Variants}
+                        >
                             <div className="font-semibold">
-                                <div className="md:flex md:flex-row md:justify-between">
+                                <motion.div
+                                    className="md:flex md:flex-row md:justify-between"
+                                    variants={Variants}>
                                     <h2>{data.projectName}</h2>
                                     <h2>{dateFinished.toLocaleDateString('en-us', { year: "numeric", month: "long" })} </h2>
-                                </div>
-                                <div className="md:flex md:flex-row md:justify-start ">
+                                </motion.div>
+                                <motion.div
+                                    className="md:flex md:flex-row md:justify-start "
+                                    variants={Variants}>
                                     {data.repositoryLink !== ""
                                         ? <Link
                                             className="hover:decoration-solid underline decoration-dotted mr-2"
@@ -88,28 +132,36 @@ const Projects = () => {
                                         >
                                             Live Demo Site
                                         </Link>
-                                        :""
+                                        : ""
                                     }
 
 
 
-                                </div>
+                                </motion.div>
                             </div>
 
                             {data.details.map((detail, index) => {
                                 return (
-                                    <li key={index} className="ml-8">
+                                    <motion.li
+                                        key={index}
+                                        className="ml-8"
+                                        variants={Variants}
+                                        initial="offscreen"
+                                        whileInView="details"
+
+
+                                    >
                                         {detail}
-                                    </li>
+                                    </motion.li>
                                 )
                             })
                             }
-                        </div>
+                        </motion.div>
                     )
                 })
                 }
 
-            </div>
+            </motion.div>
         </>
     )
 }

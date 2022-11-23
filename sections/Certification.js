@@ -1,6 +1,8 @@
 import Link from "next/link";
 import { useRouter } from "next/router"
 import Button from "../components/Button"
+import { motion } from 'framer-motion'
+
 
 
 const Certification = () => {
@@ -14,6 +16,31 @@ const Certification = () => {
         }
     ]
 
+    const Variants = {
+        offscreen: {
+            opacity: 0,
+            y: 50
+        },
+        onscreen: {
+            opacity: 1,
+            y: 0,
+
+            transition: {
+                type: "Spring",
+                duration: 0.8,
+                staggerChildren: 0.3
+            }
+        },
+        details: {
+            opacity: 1,
+            y: 0,
+            transition: {
+                type: "Spring",
+                duration: 0.5
+            }
+        }
+    };
+
     const router = useRouter();
 
 
@@ -22,20 +49,36 @@ const Certification = () => {
 
     return (
         <>
-            <div className="lg:mx-40 mx-6" id="Certifications">
-                <div className="h1">
+            <motion.div
+                className="lg:mx-40 mx-6"
+                id="Certifications"
+                initial="offscreen"
+                viewport={{ once: false }}
+                whileInView="onscreen"
+            >
+                <motion.div className="h1" variants={Variants}>
                     <h1 className="">Certifications</h1>
-                </div>
+                </motion.div>
                 {data.map((data, index) => {
                     let dateIssued = new Date(data.dateIssued)
                     return (
-                        <div className="mb-8" key={index}>
+                        <motion.div
+                            className="mb-8"
+                            key={index}
+                            variants={Variants}
+                        >
                             <div className="font-semibold ">
-                                <div className="md:flex md:flex-row md:justify-between ">
+                                <motion.div
+                                    className="md:flex md:flex-row md:justify-between "
+                                    variants={Variants}
+                                >
                                     <h2 aria-label="view">{data.certName} </h2>
                                     <h2>{dateIssued.toLocaleDateString('en-us', { year: "numeric", month: "long" })}</h2>
-                                </div>
-                                <div className="md:flex md:flex-row md:justify-between">
+                                </motion.div>
+                                <motion.div
+                                    className="md:flex md:flex-row md:justify-between"
+                                    variants={Variants}
+                                >
                                     <h2>{data.issuer}</h2>
                                     <Link
                                         className="hover:decoration-solid underline decoration-dotted"
@@ -44,18 +87,14 @@ const Certification = () => {
                                     >
                                         View Certificate
                                     </Link>
-
-
-
-
-                                </div>
+                                </motion.div>
                             </div>
-                        </div>
+                        </motion.div>
                     )
                 })
                 }
 
-            </div>
+            </motion.div>
         </>
     )
 }

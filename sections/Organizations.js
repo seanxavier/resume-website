@@ -1,5 +1,5 @@
 
-
+import { motion } from 'framer-motion'
 const Organizations = () => {
 
     const data = [
@@ -44,25 +44,69 @@ const Organizations = () => {
         }
     ]
 
+    const Variants = {
+        offscreen: {
+            opacity: 0,
+            y: 50
+        },
+        onscreen: {
+            opacity: 1,
+            y: 0,
+
+            transition: {
+                type: "Spring",
+                duration: 0.8,
+                staggerChildren: 0.3
+            }
+        },
+        details: {
+            opacity: 1,
+            y: 0,
+            transition: {
+                type: "Spring",
+                duration: 0.5
+            }
+        }
+    };
+
 
 
     return (
         <>
-            <div className="lg:mx-40  mx-6" id="Organizations">
-                <div className="h1">
+            <motion.div
+                className="lg:mx-40  mx-6"
+                id="Organizations"
+                initial="offscreen"
+                viewport={{ once: false }}
+                whileInView="onscreen"
+            >
+                <motion.div
+                    className="h1"
+                    variants={Variants}
+                >
                     <h1 className="">Organizations</h1>
-                </div>
+                </motion.div>
                 {data.map((data, index) => {
                     let dateStarted = new Date(data.dateStarted);
                     let dateFinished = data.dateFinished !== ("" || "present") ? new Date(data.dateFinished) : "";
 
                     return (
-                        <div key={index} className="mb-8">
+                        <motion.div
+                            key={index}
+                            className="mb-8"
+                            variants={Variants}
+                        >
                             <div className="font-semibold">
-                                <div className="md:flex md:flex-row md:justify-between">
+                                <motion.div
+                                    className="md:flex md:flex-row md:justify-between"
+                                    variants={Variants}
+                                >
                                     <h2>{data.orgName}</h2>
-                                </div>
-                                <div className="md:flex md:flex-row md:justify-between">
+                                </motion.div>
+                                <motion.div
+                                    className="md:flex md:flex-row md:justify-between"
+                                    variants={Variants}
+                                >
                                     <h2>{data.position}</h2>
                                     <h2>{dateStarted.toLocaleDateString('en-us', { year: "numeric", month: "long" })}
                                         {data.dateFinished === ("present" || "")
@@ -70,23 +114,29 @@ const Organizations = () => {
                                             : "- " + dateFinished.toLocaleDateString('en-us', { year: "numeric", month: "long" })
                                         }
                                     </h2>
-                                </div>
+                                </motion.div>
                             </div>
 
                             {data.details.map((detail, index) => {
                                 return (
-                                    <li key={index} className="ml-8">
+                                    <motion.li
+                                        key={index}
+                                        className="ml-8"
+                                        variants={Variants}
+                                        initial="offscreen"
+                                        whileInView="details"
+                                    >
                                         {detail}
-                                    </li>
+                                    </motion.li>
                                 )
                             })
                             }
-                        </div>
+                        </motion.div>
                     )
                 })
                 }
 
-            </div>
+            </motion.div>
         </>
     )
 }
