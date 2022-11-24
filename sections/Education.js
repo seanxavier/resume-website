@@ -62,12 +62,35 @@ const Education = () => {
                     {data.map((data, index) => {
                         let dateGraduated = new Date(data.dataGraduated)
                         return (
-                            <motion.div className="mb-8" key={index} variants={Variants}>
+                            <motion.div
+                                key={index}
+                                variants={Variants}
+                                className=" mb-8 rounded-2xl  hover:border-t-2 hover:border-l-2 border-opacity-50 border-0 border-slate-600 px-5 py-5"
+                                whileHover={{
+                                    boxShadow: "8px 8px 1px rgba(0, 0, 0, 0.2)",
+                                    transition: {
+                                        type: "Spring",
+                                        duration: 0,
+                                        staggerChildren: 0.5
+                                    }
+                                }}
+                            >
                                 <div className="font-semibold">
                                     <h2>{data.school} </h2>
-                                    <div className="md:flex md:flex-row md:justify-between">
+                                    <div className="md:flex md:flex-row md:justify-between ">
                                         <h2>{data.degree}</h2>
-                                        <h2>{dateGraduated.toLocaleDateString('en-us', { year: "numeric", month: "long" })}</h2>
+                                        <motion.div>
+                                            <motion.h2
+                                            
+                                                className='highlights-bg rounded-full px-2 py-1 w-fit'
+                                                variants={Variants}
+                                                whileHover={{ scale: 1.05 }}
+                                                initial="false"
+                                            >
+                                                {dateGraduated.toLocaleDateString('en-us', { year: "numeric", month: "long" })}
+                                            </motion.h2>
+                                        </motion.div>
+
                                     </div>
                                 </div>
 

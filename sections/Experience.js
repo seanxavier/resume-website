@@ -96,12 +96,23 @@ const Experience = () => {
                         let dateFinished = new Date(data.dateFinished);
 
                         return (
-                            <div key={index} className="mb-8">
-                                <motion.div variants={Variants} >
+                            <div key={index} className="  ">
+                                <motion.div
+                                    variants={Variants}
+                                    className=" mb-8 rounded-2xl  hover:border-t-2 hover:border-l-2 border-opacity-50 border-0 border-slate-600 px-5 py-5"
+                                    whileHover={{
+                                        boxShadow: "8px 8px 1px rgba(0, 0, 0, 0.2)",
+                                        transition: {
+                                            type: "Spring",
+                                            duration: 0,
+                                            staggerChildren: 0.5
+                                        }
+                                    }}
+                                    >
                                     <div className="font-semibold">
                                         <motion.div
                                             className="md:flex md:flex-row md:justify-between"
-                                            variants={Variants} viewport={{ once: false }} initial="offscreen">
+                                            variants={Variants} viewport={{ once: false }} >
                                             <h2>{data.company}</h2>
                                             <h2>{data.location}</h2>
                                         </motion.div>

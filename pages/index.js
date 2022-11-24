@@ -20,8 +20,9 @@ export default function Home() {
     // restDelta: 0.001
   });
 
+
   return (
-    <div className={styles.container}>
+    <motion.div className={styles.container} >
 
       <Head>
         <title>Sean Xavier Nieva | Resume</title>
@@ -30,7 +31,6 @@ export default function Home() {
       </Head>
 
       <main className="flex flex-col">
-
         <About />
         <Education />
         <Skills />
@@ -46,11 +46,12 @@ export default function Home() {
 
 
 
+
       </main>
 
 
 
 
-    </div>
+    </motion.div>
   )
 }

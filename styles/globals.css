@@ -35,3 +35,8 @@ a {
 .h1 {
   @apply text-2xl font-bold mt-16 mb-4 text-center
 }
+
+
+.highlights-bg{
+  @apply dark:bg-cyan-900 hover:dark:bg-cyan-500 bg-slate-200 hover:bg-slate-300
+}

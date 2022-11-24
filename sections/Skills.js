@@ -78,7 +78,7 @@ const Skills = () => {
     return (
         <>
             <motion.div
-                className="lg:mx-40  mx-6"
+                className="lg:mx-40 mx-6 p-4"
                 id="Skills"
                 initial="offscreen"
                 viewport={{ once: false }}
@@ -90,7 +90,7 @@ const Skills = () => {
                 >
                     <h1 className="">Skills</h1>
                 </motion.div>
-                <div className="flex flex-row flex-wrap lg:justify-between md:justify-start">
+                <div className="flex flex-wrap  lg:justify-between md:justify-start">
 
                     <SkillSetCard data={data.development} title="Development" />
                     <SkillSetCard data={data.language} title="Programming Languages" />
